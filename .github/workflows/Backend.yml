@@ -1,0 +1,30 @@
+name: Backend
+
+on:
+    push:
+      branches:
+        - main
+      paths:
+        - 'Backend/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: false
+    strategy:
+      matrix:
+        node-version: [18.x]
+       
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        run: |
+          cd Backend
+          npm i
+
+      - name: Build and Test
+        run: |
+          cd Backend
+          pm2 restart all
+          
