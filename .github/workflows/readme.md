@@ -1,3 +1,4 @@
+Forntned , Backend , Admin_frontend 
 jobs:
   build:
     runs-on: ubuntu-latest
